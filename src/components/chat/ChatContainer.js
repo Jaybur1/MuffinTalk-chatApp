@@ -12,7 +12,8 @@ class ChatContainer extends Component {
         this.state = {
             chats: [],
             activeChat: null,
-            users: []
+            users: [],
+            menuStatus: ''
         }
     }
 
@@ -144,9 +145,11 @@ class ChatContainer extends Component {
         this.setState({ activeChat })
     }
 
+
+
     render() {
         const { user, logout } = this.props
-        const { chats, activeChat, users } = this.state
+        const { chats, activeChat, users, menuStatus } = this.state
         return (
             <div className="container">
                 <SideBar
@@ -157,12 +160,18 @@ class ChatContainer extends Component {
                     activeChat={activeChat}
                     setActiveChat={this.setActiveChat}
                     onSendPrivateMessage={this.sendPrivateMessage}
+                    setMenu={menuStatus}
                 />
                 <div className="chat-room-container">
                     {
                         activeChat !== null ? (
                             <div className="chat-room">
-                                <ChatHeading name={activeChat.name} />
+                                <ChatHeading
+                                    name={activeChat.name}
+                                    setMenu={(menuStatus) => {
+                                        this.setState({ menuStatus })
+                                    }}
+                                />
                                 <Messages
                                     messages={activeChat.messages}
                                     user={user}

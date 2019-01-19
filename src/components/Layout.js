@@ -4,8 +4,11 @@ import LoginForm from './LoginForm';
 import ChatContainer from './chat/ChatContainer'
 
 import { USER_CONNECTED, LOGOUT, VERIFY_USER } from '../Events';
+//for production
+//const socketURL = "/"
 
-const socketURL = "/"
+//for local
+const socketURL = "http://192.168.1.5:3231/"
 
 class Layout extends Component {
     constructor(props) {
@@ -13,6 +16,7 @@ class Layout extends Component {
         this.state = {
             socket: null,
             user: null,
+
         }
     }
 

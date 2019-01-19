@@ -79,6 +79,7 @@ module.exports = function (socket) {
     //user logout 4
     socket.on(LOGOUT, function () {
         connectedUsers = removeUser(connectedUsers, socket.user)
+        io.emit(USER_DISCONNECTED, connectedUsers)
     })
 
     //send community chat 5

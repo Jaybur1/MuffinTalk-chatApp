@@ -3,9 +3,8 @@ import { SideBarOption } from './SideBarOption'
 import { get, last, differenceBy } from 'lodash'
 import { createChatNameFromUsers } from '../../Factories'
 import FAChevronDown from 'react-icons/lib/md/keyboard-arrow-down'
-import FAMenu from 'react-icons/lib/fa/list-ul'
-import FASearch from 'react-icons/lib/fa/search'
 import MdPowerSettingsNew from 'react-icons/lib/md/power-settings-new'
+import { Badge } from 'react-mdl'
 
 class SideBar extends Component {
     static type = {
@@ -15,8 +14,8 @@ class SideBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: '',
-            activeSideBar: SideBar.type.CHATS
+
+            activeSideBar: SideBar.type.CHATS,
         }
     }
 
@@ -42,25 +41,13 @@ class SideBar extends Component {
     }
 
     render() {
-        const { chats, activeChat, user, setActiveChat, logout, users } = this.props
-        const { search, activeSideBar } = this.state
+        const { chats, activeChat, user, setActiveChat, logout, users, setMenu } = this.props
+        const { activeSideBar, } = this.state
         return (
-            <div id="side-bar">
+            <div id="side-bar" style={setMenu === 'close' ? { width: '0%' } : {}}>
                 <div className="heading">
                     <div className="app-name">MaffinTalk Chat<FAChevronDown /></div>
-                    <div className="menu">
-                        <FAMenu />
-                    </div>
                 </div>
-                <form onSubmit={this.handleSubmit} className="search">
-                    <i className="search-icon"><FASearch /></i>
-                    <input
-                        onChange={this.handleChange}
-                        placeholder="Search user"
-                        value={search}
-                        type="text" />
-                    <div className="plus"></div>
-                </form>
                 <div className="side-bar-select">
                     <div className={`side-bar-select__option ${activeSideBar === SideBar.type.CHATS ? 'active' : ''}`}
                         onClick={() => { this.setActiveSideBar(SideBar.type.CHATS) }}
@@ -70,7 +57,13 @@ class SideBar extends Component {
                     <div className={`side-bar-select__option ${activeSideBar === SideBar.type.USERS ? 'active' : ''}`}
                         onClick={() => { this.setActiveSideBar(SideBar.type.USERS) }}
                     >
-                        <span>Users</span>
+                        {
+                            users.length > 1 ?
+                                <Badge text={String(users.length - 1)} noBackground>Users</Badge>
+                                :
+                                <span>Users</span>
+                        }
+
                     </div>
                 </div>
                 <div
@@ -122,15 +115,3 @@ class SideBar extends Component {
 
 export default SideBar;
 
-/*  <div
-                                        key={chat.id}
-                                        className={`user ${classNames}`}
-                                        onClick={() => { setActiveChat(chat) }}
-                                    >
-                                        <div className="user-photo">{chatSideName[0].toUpperCase()}</div>
-                                        <div className="user-info">
-                                            <div className="name">{chatSideName}</div>
-                                            {lastMessage && <div className="last-message">{lastMessage.message}</div>}
-                                        </div>
-
-                                    </div>*/
