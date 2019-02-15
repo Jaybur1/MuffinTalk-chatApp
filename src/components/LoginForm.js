@@ -61,6 +61,10 @@ class LoginForm extends Component {
                     />
                     <div className="error">{error ? error : null}</div>
                 </form>
+
+                <footer>
+                    Coded by Jaybur&copy; 2018
+                </footer>
             </div>
         );
     }

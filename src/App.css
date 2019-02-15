@@ -19,7 +19,7 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #9FAFCB;
+    background: url('./img/login_background.svg');
 }
 
 .login-form {
@@ -46,7 +46,7 @@ textarea {
     font-size: 3vw;
     border-bottom: solid 2px #b3b2ca;
     transition: all .23s ease-in;
-    background: #9FAFCB
+    background: #F4F4F9
 }
 
 .login-form input:focus {
@@ -59,6 +59,11 @@ textarea {
     margin: 5px 0;
     padding: 5px 10px;
     color: #c92c43
+}
+
+footer {
+    position: absolute;
+    bottom: 0
 }
 
 .container {
@@ -356,7 +361,7 @@ textarea {
     flex-direction: column;
     justify-content: flex-end;
     color: #b3b2ca;
-    background: #9FAFCB;
+    background: url('./img/thread_background.svg');
 }
 
 .message-container {
