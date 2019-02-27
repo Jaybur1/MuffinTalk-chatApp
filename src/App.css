@@ -82,6 +82,7 @@ footer {
     display: grid;
     justify-content: stretch;
     grid-template-rows: 8vh 5vh 1fr 8vh;
+    transition: width 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 
