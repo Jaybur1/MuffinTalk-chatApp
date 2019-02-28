@@ -83,6 +83,14 @@ footer {
     justify-content: stretch;
     grid-template-rows: 8vh 5vh 1fr 8vh;
     transition: width 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -moz-transition: width 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* Firefox 4 */
+    -webkit-transition: width 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* Safari and Chrome */
+    -o-transition: width 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* Opera */
+    -ms-transition: width 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* Explorer 10 */
 }
 
 
