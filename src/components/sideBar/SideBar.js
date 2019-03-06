@@ -46,7 +46,7 @@ class SideBar extends Component {
         return (
             <div id="side-bar" style={setMenu === 'close' ? { width: '0%' } : {}}>
                 <div className="heading">
-                    <div className="app-name">MaffinTalk Chat<FAChevronDown /></div>
+                    <div className="app-name">MuffinTalk Chat<FAChevronDown /></div>
                 </div>
                 <div className="side-bar-select">
                     <div className={`side-bar-select__option ${activeSideBar === SideBar.type.CHATS ? 'active' : ''}`}
